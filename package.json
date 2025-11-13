@@ -1,42 +1,19 @@
 {
-  "name": "portfolio-website",
-  "version": "0.1.0",
+  "name": "web-portfolio-v2",
+  "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.2",
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@nextui-org/react": "^2.2.9",
-    "@types/node": "20.4.2",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.7",
-    "eslint": "8.44.0",
-    "eslint-config-next": "13.4.9",
-    "framer-motion": "^10.16.5",
-    "next": "13.4.9",
-    "pocketbase": "^0.17.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.10.1",
-    "react-parallax-tilt": "^1.7.176",
-    "react-scroll": "^1.8.9",
-    "react-scroll-parallax": "^3.4.2",
-    "sharp": "^0.33.0",
-    "swiper": "^11.0.5",
-    "typescript": "5.1.6"
-  },
-  "devDependencies": {
-    "@types/react-scroll": "^1.8.7",
-    "autoprefixer": "10.4.14",
-    "postcss": "8.4.25",
-    "tailwindcss": "3.3.2"
+    "@tailwindcss/vite": "^4.1.17",
+    "nuxt": "^4.2.1",
+    "tailwindcss": "^4.1.17",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3"
   }
 }
