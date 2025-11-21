@@ -1,7 +1,7 @@
 <script setup lang="ts">
   useSeoMeta({
-    title: "Eclipseron",
-    ogTitle: "Eclipseron",
+    title: "Petrus Aria",
+    ogTitle: "Petrus Aria",
     description: "Petrus Ariaa's portfolio website. Developer under development. Years of experience with Python, Go, and Node.js. Glad to meet you.",
     ogDescription: "Petrus Ariaa's portfolio website. Developer under development. Years of experience with Python, Go, and Node.js. Glad to meet you.",
     ogImage: "/resume-profile.jpg",

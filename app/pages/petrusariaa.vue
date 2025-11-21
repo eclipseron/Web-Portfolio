@@ -1,9 +1,9 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: "Eclipseron | Petrus Aria C Rambing",
-  ogTitle: "Eclipseron | Petrus Aria C Rambing",
-  description: "Fresh graduate in Information Engineering from Universitas Gadjah Mada with 2 years of experience in web development focusing on Backend and Cloud Computing.",
-  ogDescription: "Fresh graduate in Information Engineering from Universitas Gadjah Mada with 2 years of experience in web development focusing on Backend and Cloud Computing.",
+  title: "CV | Petrus Aria C Rambing",
+  ogTitle: "CV | Petrus Aria C Rambing",
+  description: "Petrus Aria C Rambing is a fresh graduate in Information Engineering from Universitas Gadjah Mada with 2 years of experience in web development focusing on Backend and Cloud Computing.",
+  ogDescription: "Petrus Aria C Rambing is a fresh graduate in Information Engineering from Universitas Gadjah Mada with 2 years of experience in web development focusing on Backend and Cloud Computing.",
   ogImage: "/resume-profile.jpg",
   twitterCard: 'summary_large_image',
 })
