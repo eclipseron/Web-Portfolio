@@ -1,7 +1,4 @@
 User-Agent: *
 Allow: /
 
-User-Agent: Googlebot
-Allow: /
-
 Sitemap: https://eclipseron.web.id/sitemap.xml
