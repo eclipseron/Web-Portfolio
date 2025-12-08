@@ -1,11 +1,60 @@
 <script setup lang="ts">
   useSeoMeta({
-    title: "Petrus Aria",
-    ogTitle: "Petrus Aria",
-    description: "Petrus Ariaa's portfolio website. Developer under development. Years of experience with Python, Go, and Node.js. Glad to meet you.",
-    ogDescription: "Petrus Ariaa's portfolio website. Developer under development. Years of experience with Python, Go, and Node.js. Glad to meet you.",
-    ogImage: "/resume-profile.jpg",
+    title: "Petrus Ariaa - eclipseron.dev",
+    ogTitle: "Petrus Ariaa - eclipseron.dev",
+    twitterTitle: "Petrus Ariaa - eclipseron.dev",
+
+    description: "Developer under development. Years of building in backend and cloud computing with Python, Go, and Node.js. Glad to meet you.",
+    ogDescription: "Developer under development. Years of building in backend and cloud computing with Python, Go, and Node.js. Glad to meet you.",
+    twitterDescription: "Developer under development. Years of building in backend and cloud computing with Python, Go, and Node.js. Glad to meet you.",
+
+    ogImage: "https://eclipseron.dev/resume-profile.jpg",
+    twitterImage: "https://eclipseron.dev/resume-profile.jpg",
+    
+    ogUrl: "https://eclipseron.dev",
+    ogType: 'profile',
+    ogSiteName: "Eclipseron",
+    author: "Petrus Aria Chevalier Rambing",
+    robots: "index,follow",
     twitterCard: 'summary_large_image',
+  })
+  useHead({
+    link: [
+      {
+        rel: "canonical",
+        href: "https://eclipseron.dev"
+      }
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        innerHTML:
+`{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Petrus Aria Chevalier Rambing",
+  "url":"https://eclipseron.dev",
+  "jobTitle":"Backend Developer",
+  "image":"https://eclipseron.dev/resume-profile.jpg",
+  "email": "petrusariacr25@gmail.com",
+  "address": "Tangerang, Banten",
+  "alumniOf": {
+    "@type": "OrganizationRole",
+    "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universitas Gadjah Mada",
+        "sameAs": "https://ugm.ac.id"
+    },
+    "startDate": "2025"
+  },
+  "sameAs":[
+    "https://github.com/eclipseron",
+    "https://www.linkedin.com/in/petrusariaa",
+    "https://www.instagram.com/petrusaria25"
+  ]
+}`,
+      }
+    ]
   })
 
   const LANGUAGES = ["Python", "Go", "Javascript", "Typescript", "SQL", "C#", "C++"]
