@@ -57,10 +57,10 @@
     ]
   })
 
-  const LANGUAGES = ["Python", "Go", "Javascript", "Typescript", "SQL", "C#", "C++"]
-  const TECHNOLOGIES = ["FastAPI", "Flask", "Gin", "Next.js", "Vue", "TailwindCSS#",
-    "Google Cloud Platform (GCP)", "PostgreSQL", "MySQL", "Redis", "MongoDB", "ScyllaDB"]
-  const TOOLS = ["Linux", "Git", "Docker", "Raspberry Pi", "Figma", "Home Assistant"]
+  // const LANGUAGES = ["Python", "Go", "Javascript", "Typescript", "SQL", "C#", "C++"]
+  // const TECHNOLOGIES = ["FastAPI", "Flask", "Gin", "Next.js", "Vue", "TailwindCSS",
+  //   "Google Cloud Platform (GCP)", "PostgreSQL", "MySQL", "Redis", "MongoDB", "ScyllaDB"]
+  // const TOOLS = ["Linux", "Git", "Docker", "Raspberry Pi", "Figma", "Home Assistant"]
   const TOP_PROJECTS = [
     {
       id: "paroki-samara",
@@ -229,7 +229,7 @@
           </svg>
           <a href="mailto:petrusariacr25@gmail.com" class="text-primary">petrusariacr25@gmail.com</a>
         </div>
-        <h2 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-12">Programming Languages</h2>
+        <!-- <h2 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-12">Programming Languages</h2>
         <div class="flex flex-wrap gap-2">
           <Badge v-for="lang in LANGUAGES" :title="lang" />
         </div>
@@ -240,7 +240,7 @@
         <h2 class="text-xl md:text-2xl font-semibold text-primary my-4">Other tools</h2>
         <div class="flex flex-wrap gap-2">
           <Badge v-for="tool in TOOLS" :title="tool" />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
