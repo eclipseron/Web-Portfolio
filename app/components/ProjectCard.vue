@@ -8,28 +8,69 @@
     githubUrl: String,
     imgUrl: String,
   })
+
+  const goToDetail = () => {
+    if (props.id) {
+      navigateTo(`/projects/${props.id}`)
+    }
+  }
 </script>
 
 <template>
-  <div :id="props.id"
-    class="flex gap-4 items-center bg-primary/10 p-4 rounded-lg hover:outline-2 hover:outline-primary/50 hover:outline-offset-2">
-    <img :hidden="!props.imgUrl" :src="props.imgUrl" class="w-[10%] aspect-square object-cover hidden lg:block" />
-    <div class="w-full">
-      <h3 class="text-xl font-semibold text-primary mb-4">{{ props.title }}</h3>
-      <p class="text-sm leading-relaxed">{{ props.description }}</p>
-      <div class="flex gap-2 flex-wrap mt-4">
-        <p v-for="tag in props.tags" class="text-sm bg-primary/40 py-1 px-2 rounded">{{tag}}</p>
+  <div
+    :id="props.id"
+    role="link"
+    tabindex="0"
+    @click="goToDetail"
+    @keydown.enter="goToDetail"
+    class="group flex gap-4 items-center bg-primary/10 p-4 rounded-lg hover:outline-2 hover:outline-primary/50 hover:outline-offset-2 hover:bg-primary/15 transition-all cursor-pointer">
+    <img :hidden="!props.imgUrl" :src="props.imgUrl" :alt="props.title" class="w-[10%] aspect-square object-cover hidden lg:block" />
+    <div class="w-full flex flex-col justify-between h-full">
+      <div>
+        <div class="flex items-start justify-between gap-2 mb-4">
+          <NuxtLink
+            :to="`/projects/${props.id}`"
+            @click.stop
+            class="text-xl font-semibold text-primary group-hover:underline underline-offset-4">
+            {{ props.title }}
+          </NuxtLink>
+          <NuxtLink
+            :to="`/projects/${props.id}`"
+            @click.stop
+            class="text-xs font-mono text-primary/70 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0 mt-1">
+            Details &rarr;
+          </NuxtLink>
+        </div>
+        <p class="text-sm leading-relaxed">{{ props.description }}</p>
+        <div class="flex gap-2 flex-wrap mt-4">
+          <p v-for="tag in props.tags" :key="String(tag)" class="text-sm bg-primary/40 py-1 px-2 rounded">{{ tag }}</p>
+        </div>
       </div>
       <div class="flex justify-end mt-4 gap-2">
-        <a v-if="githubUrl" :title="title" :hidden="!githubUrl" :href="githubUrl" target="_blank" class="bg-primary p-0.5 rounded w-fit cursor-pointer">
+        <a
+          v-if="githubUrl"
+          :title="`${title} GitHub Repository`"
+          :hidden="!githubUrl"
+          :href="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          @click.stop
+          class="bg-primary hover:bg-primary/80 transition-colors p-0.5 rounded w-fit cursor-pointer">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M11.9906 1.78906C6.19453 1.78672 1.5 6.47891 1.5 12.2703C1.5 16.85 4.43672 20.743 8.52656 22.1727C9.07734 22.3109 8.99297 21.9195 8.99297 21.6523V19.8359C5.8125 20.2086 5.68359 18.1039 5.47031 17.7523C5.03906 17.0164 4.01953 16.8289 4.32422 16.4773C5.04844 16.1047 5.78672 16.5711 6.64219 17.8344C7.26094 18.7508 8.46797 18.5961 9.07969 18.4438C9.21328 17.893 9.49922 17.4008 9.89297 17.0188C6.59766 16.4281 5.22422 14.4172 5.22422 12.0266C5.22422 10.8664 5.60625 9.8 6.35625 8.93985C5.87812 7.52188 6.40078 6.30781 6.47109 6.12734C7.83281 6.00547 9.24844 7.10235 9.35859 7.18906C10.132 6.98047 11.0156 6.87031 12.0047 6.87031C12.9984 6.87031 13.8844 6.98516 14.6648 7.19609C14.9297 6.99453 16.2422 6.05234 17.5078 6.16719C17.5758 6.34766 18.0867 7.5336 17.6367 8.93281C18.3961 9.79531 18.7828 10.8711 18.7828 12.0336C18.7828 14.4289 17.4 16.4422 14.0953 17.0234C14.3784 17.3018 14.6031 17.6338 14.7564 18C14.9098 18.3662 14.9886 18.7593 14.9883 19.1563V21.793C15.007 22.0039 14.9883 22.2125 15.3398 22.2125C19.4906 20.8133 22.4789 16.8922 22.4789 12.2727C22.4789 6.47891 17.782 1.78906 11.9906 1.78906V1.78906Z"
               fill="black" />
           </svg>
         </a>
-        <a v-if="previewUrl" :title="title" :hidden="!previewUrl" :href="previewUrl" target="_blank"
-          class="bg-primary py-0.5 px-3 rounded w-fit flex gap-1 items-center justify-start text-dark-primary cursor-pointer">
+        <a
+          v-if="previewUrl"
+          :title="`${title} Live Preview`"
+          :hidden="!previewUrl"
+          :href="previewUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          @click.stop
+          class="bg-primary hover:bg-primary/80 transition-colors py-0.5 px-3 rounded w-fit flex gap-1 items-center justify-start text-dark-primary cursor-pointer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12V12ZM11.25 1.6155C10.245 1.9215 9.2475 2.8455 8.4195 4.398C8.1467 4.91414 7.91207 5.44958 7.7175 6H11.25V1.6155ZM6.135 6C6.38501 5.20323 6.70631 4.4306 7.095 3.6915C7.35436 3.20108 7.65388 2.73298 7.9905 2.292C6.13201 3.06274 4.53301 4.34943 3.3825 6H6.135ZM5.262 11.25C5.307 9.9345 5.469 8.673 5.73 7.5H2.511C1.95168 8.67758 1.61792 9.94952 1.527 11.25H5.262ZM7.2705 7.5C6.97547 8.7297 6.80561 9.9861 6.7635 11.25H11.25V7.5H7.2705ZM12.75 7.5V11.25H17.235C17.1934 9.98615 17.0241 8.72975 16.7295 7.5H12.75ZM6.765 12.75C6.80662 14.0138 6.97598 15.2702 7.2705 16.5H11.25V12.75H6.765ZM12.75 12.75V16.5H16.7295C17.01 15.3525 17.1885 14.088 17.2365 12.75H12.75ZM7.7175 18C7.9245 18.579 8.16 19.116 8.4195 19.602C9.2475 21.1545 10.2465 22.077 11.25 22.3845V18H7.7175ZM7.9905 21.708C7.65386 21.267 7.35434 20.7989 7.095 20.3085C6.70632 19.5694 6.38502 18.7968 6.135 18H3.3825C4.53295 19.6506 6.13196 20.9373 7.9905 21.708V21.708ZM5.73 16.5C5.45875 15.2671 5.30208 14.0118 5.262 12.75H1.527C1.62 14.085 1.9635 15.3495 2.511 16.5H5.73ZM16.0095 21.708C17.868 20.9373 19.4671 19.6506 20.6175 18H17.865C17.615 18.7968 17.2937 19.5694 16.905 20.3085C16.6457 20.799 16.3462 21.2671 16.0095 21.708V21.708ZM12.75 18V22.3845C13.755 22.0785 14.7525 21.1545 15.5805 19.602C15.84 19.116 16.0755 18.579 16.2825 18H12.75ZM18.27 16.5H21.489C22.0365 15.3495 22.38 14.085 22.473 12.75H18.738C18.6979 14.0118 18.5413 15.2671 18.27 16.5ZM22.473 11.25C22.382 9.94952 22.0483 8.67759 21.489 7.5H18.27C18.531 8.673 18.693 9.9345 18.738 11.25H22.473ZM16.905 3.6915C17.2755 4.3875 17.598 5.1615 17.865 6H20.6175C19.4671 4.34937 17.868 3.06267 16.0095 2.292C16.3365 2.718 16.6365 3.189 16.905 3.6915V3.6915ZM16.2825 6C16.0879 5.44957 15.8533 4.91413 15.5805 4.398C14.7525 2.8455 13.755 1.923 12.75 1.6155V6H16.2825Z"
